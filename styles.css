@@ -11,6 +11,10 @@ h1 {
   font-family: comicsans;
 }
 
+table, th, td {
+  border: 1px solid black;
+}
+
 #octocat {
   display: block;
   width:384px;
