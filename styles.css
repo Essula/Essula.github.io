@@ -15,6 +15,10 @@ table, th, td {
   border: 1px solid black;
 }
 
+table {
+  border-spacing: 5px;
+}
+
 #octocat {
   display: block;
   width:384px;
