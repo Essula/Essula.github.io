@@ -1,71 +1,32 @@
 <!DOCTYPE html>
-
 <html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <title>The Room</title>
-  <link rel="stylesheet" href="styles.css">
-  </head>
-
+<meta charset="utf-8">
+<title>Display Webcam Stream</title>
+ 
+<style>
+#container {
+	margin: 0px auto;
+	width: 500px;
+	height: 375px;
+	border: 10px #333 solid;
+}
+#videoElement {
+	width: 500px;
+	height: 375px;
+	background-color: #666;
+}
+</style>
+</head>
+ 
 <body>
-  
-  <img name="main" id="main" border="0" width="640" height="480" src="http://162.254.152.109:8080/videostream.cgi?loginuse=admin&amp;loginpas=">
+<div id="container">
+	<video autoplay="true" id="videoElement">
+	
+	</video>
+</div>
+<script>
 
-  <h1 style="text-align:center;">The Room</h1>
-  <h2 style="text-align:center;">Description</h2>
-  <p style="text-align:center;">The Room is a movie that follows along the ever-lasting romance between Mark and Lisa, <br>
-    but things changed when the Fire nation attacked. <br>
-    Actually it was Johnny that was engaged to Lisa but we don't talk about that. <br>
-    Follow along as you encounter the most disappointng sex scenes that make Animal Planet seem like hard-core porn. <br>
-    Keep up as Johnny tries to understand why Lisa is cheating on him, as he bonds with her lover in a game of football <br>
-    while simultaenously trying to support his friend Denny who messed up and now Chris Rock is threatening <br>
-    him to: "Give me my money." <br>
-    My god I was so drunk when I watched this jesus christ <br>
-    At some point shit goes down. Like at the end. And by down I mean the movie finishes <br> </p> <br>
-  
- <h2 style="text-align:center;"><b>Cast</b></h2>
- <table style="width:50%" class="center">
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>Johnny</td>
-    <td>a successful banker who is engaged to Lisa.<br>
-    A goddamn legend.</td>
-  </tr>
-  <tr>
-    <td>Lisa</td>
-    <td>Johnny's fiancée, who engages in an affair with Mark.<br>
-    A c**t.</td>
-  </tr>
-  <tr>
-    <td>Mark</td>
-    <td>Johnny's best friend, who is having an affair with Lisa.<br>
-    Oh, hi Mark!</td>
-  </tr>
-  <tr>
-    <td>Denny</td>
-    <td>A young college student who is financially and emotionally supported by Johnny. <br>
-    Basically he did some drugs and now he can't pull his shit together.</td>
-  </tr>
-  <tr>
-    <td>Chris-R</td>
-    <td>a drug dealer who threatens Denny.<br>
-    Chris Rock?</td>
-</table> <br>
-  
-  
-<img src="/images/il_570xN.1384676686_4uny.jpg" alt="have a spoon"> 
-  <br>
-  <br>
-  <br>
-  <div style="text-align:center">    
-  <a href="https://taltech.ee/" ><b>go to school kids</b></a>
-    </div>
-  <div style="text-align:center">
-  <p><b> 206844 <b> </p>
-    </div>
-
+</script>
 </body>
 </html>
