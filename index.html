@@ -36,18 +36,18 @@ if (navigator.mediaDevices.getUserMedia) {
     .catch(function (err0r) {
       console.log("Something went wrong!");
     });
-}
-function stop(e) {
-  var stream = video.srcObject;
-  var tracks = stream.getTracks();
+} function toggleFullscreen() {
+  let elem = document.querySelector("video");
 
-  for (var i = 0; i < tracks.length; i++) {
-    var track = tracks[i];
-    track.stop();
+  if (!document.fullscreenElement) {
+    elem.requestFullscreen().catch(err => {
+      alert(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+    });
+  } else {
+    document.exitFullscreen();
   }
-
-  video.srcObject = null;
 }
+
 </script>
 </body>
 </html>
