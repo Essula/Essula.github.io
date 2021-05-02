@@ -22,12 +22,7 @@
 <body>
 <div id="container">
 	<video autoplay="true" id="videoElement">
-	
 	</video>
-	 <div> custom controls 
-            <button>play/pause</button>
-            <button id="fullscreenBtn" class="enterFullscreenBtn">fullscreen</button>
-      </div>
 </div>
 <script>
 
@@ -41,6 +36,17 @@ if (navigator.mediaDevices.getUserMedia) {
     .catch(function (err0r) {
       console.log("Something went wrong!");
     });
+}
+function stop(e) {
+  var stream = video.srcObject;
+  var tracks = stream.getTracks();
+
+  for (var i = 0; i < tracks.length; i++) {
+    var track = tracks[i];
+    track.stop();
+  }
+
+  video.srcObject = null;
 }
 </script>
 </body>
