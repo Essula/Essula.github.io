@@ -1,84 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>FullScreen API</title>
-    <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="main.css">
-    <style>
-        .big{
-            background-color: #bada55;
-            color: white;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Camera</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 </head>
+
 <body>
-    <header>
-        <h1>First Heading</h1>
-        <video id="vid" controls></video>
-        <audio id="aud" controls></audio>
-    </header>
-    <script>
-        /****
-        List of prefixed versions of props
-        https://developer.mozilla.org/en-US/docs/Web/API/Fullscreen_API#Prefixing
-        ****/
-        
-        let fschange = (document.onwebkitfullscreenchange)? 'onwebkitfullscreenchange':(document.onfullscreenchange)?
-        'onfullscreenchange': (document.onmozfullscreenchange)?
-        'onmozfullscreenchange': (document.MSFullScreenChange)?
-        'MSFullscreenChange': null;
-        if(fschange){
-            document[fschange] = toggleFull;
-        }
-        
-        let h1 = document.querySelector('h1');
-        let vid = document.querySelector('#vid');
-        let aud = document.querySelector('#aud');
-        
-        h1.addEventListener('click', goBig);
-        vid.addEventListener('click', goBig);
-        aud.addEventListener('click', goBig);
-        
-        h1.addEventListener('dblclick', goHome);
-        vid.addEventListener('dblclick', goHome);
-        aud.addEventListener('dblclick', goHome);
-        
-        function goBig(ev){
-            let element = ev.currentTarget;
-            console.dir(element);
-            if(! document.webkitFullscreenElement){
-                if(element.webkitRequestFullscreen){
-                    element.webkitRequestFullscreen();
-                }else{
-                    console.log('element cannot be fullscreened');
-                }
-            }else{
-                console.log(document.webkitFullscreenElement, 'is the full screen element');
-            }
-        }
-        
-        function goHome(ev){
-            let element = ev.target;
-            console.log(element)
-            element.classList.remove('big');
-            if( document.webkitFullscreenEnabled){
-                document.webkitExitFullscreen();
-            }   
-        }
-        
-        function toggleFull(ev){
-            let element = document.webkitFullscreenElement;
-            if(element){
-                element.classList.add('big');
-                console.log('big class added')
-            }else{
-                //remove it from the first element with it
-                element = document.querySelector('h1.big, audio.big, video.big');
-                element.classList.remove('big');
-                //when people use esc instead of dblclick
-            }
-        }
-    </script>
+  <section class="section">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-four-fifths">
+          <h1 class="title">
+            JavaScript Camera
+          </h1>
+          <video autoplay id="video"></video>
+          <button class="button is-hidden" id="btnPlay">
+            <span class="icon is-small">
+              <i class="fas fa-play"></i>
+            </span>
+          </button>
+          <button class="button" id="btnPause">
+            <span class="icon is-small">
+              <i class="fas fa-pause"></i>
+            </span>
+          </button>
+          <button class="button is-success" id="btnScreenshot">
+            <span class="icon is-small">
+              <i class="fas fa-camera"></i>
+            </span>
+          </button>
+          <button class="button" id="btnChangeCamera">
+            <span class="icon">
+              <i class="fas fa-sync-alt"></i>
+            </span>
+            <span>Switch camera</span>
+          </button>
+        </div>
+        <div class="column">
+          <h2 class="title">Screenshots</h2>
+          <div id="screenshots"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        By <a href="https://www.webdevdrops.com/">Douglas Matoso</a> | <a
+          href="https://github.com/doug2k1/javascript-camera">Source code</a>
+      </p>
+    </div>
+  </footer>
+
+  <canvas class="is-hidden" id="canvas"></canvas>
+  <script src="script.js"></script>
 </body>
+
 </html>
