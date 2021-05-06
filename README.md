@@ -30,4 +30,4 @@ Reboot Raspberry to configure changes using `sudo reboot`.
 
 View camera from a browser using the Pi's IP address and Motion's default port 8081. Default address for viewing is: "http://192.168.1.138:8081/".
 
-In case of Raspberry Pi rebooting for necessary changes then use streaming service start command in terminal!
+**In case of Raspberry Pi rebooting for necessary changes then use streaming service start command in terminal!**
